@@ -6,5 +6,4 @@ for resource_type in builds buildconfigs deploymentconfigs imagerepositories ima
 do
 	echo "# Entity: ${resource_type}"
 	osc get ${resource_type}
-	osc get ${resource_type} | grep -v "^[A-Z ]*$" | awk '{print $1}' | sed "s/\(.*\)/osc delete ${resource_type} \1"
 done
